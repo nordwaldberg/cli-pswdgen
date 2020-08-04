@@ -4,6 +4,12 @@ module.exports = [
         description: 'set password length',
         _default: 8,
         name: 'length',
+        validate(value) {
+            if (!isNumber(value)) {
+                console.error(`value parameter "${this.name}" should be a number`);
+                process.exit(1);
+            }
+        }
     },
     {
         flags: '-s --no-specials',
@@ -26,3 +32,10 @@ module.exports = [
         name: 'lowercases',
     },
 ];
+
+function isNumber(guessNumber) {
+    if(isNaN(Number(guessNumber))) {
+        return false;
+    }
+    return true;
+}

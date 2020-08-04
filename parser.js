@@ -17,24 +17,10 @@ parsed
     .parse(process.argv)
     .opts();
 
+options.forEach(option => {
+    if (option.validate) {
+        option.validate(parsed[option.name]);
+    }
+})
+
 module.exports = parsed;
-
-function validate(value, type, name) {
-    switch (type) {
-        case ("number"):
-            if (!isNumber(value)) {
-                console.error(`value parameter "${name}" should be a number`);
-                process.exit(1);
-            }
-            break;
-    }
-}
-
-function isNumber(guessNumber) {
-    if(isNaN(Number(guessNumber))) {
-        return false;
-    }
-    return true;
-}
-
-validate(parsed.length, "number", "length");
