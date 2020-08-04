@@ -1,7 +1,7 @@
 const { program } = require('commander');
 const options = require('./options');
 
-program.version('6.0.0');
+program.version('1.0.0', '-v, --version', 'output the current version');
 
 
 const parsed = program
