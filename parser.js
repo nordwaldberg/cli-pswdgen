@@ -1,15 +1,19 @@
-const { program, option } = require('commander');
+const { program } = require('commander');
+const options = require('./options');
 
 program.version('6.0.0');
 
+
 const parsed = program
     .name('pswdgen')
-    .usage('[options]')
-    .option('-L --length <number>', 'set password length', 8)
-    .option('-s --no-specials', `do not use special characters`)
-    .option('-d --no-digits', 'do not use digits from 0 to 9')
-    .option('-u --no-uppercases', 'do not use letters in uppercase register')
-    .option('-l --no-lowercases', 'do not use letters in lowercase register')
+    .usage('[options]');
+
+for (let option of options) {
+    const { flags, description, _default } = option;
+    parsed.option(flags, description, _default);
+}
+
+parsed
     .parse(process.argv)
     .opts();
 
