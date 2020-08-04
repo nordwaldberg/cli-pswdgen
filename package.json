@@ -1,0 +1,23 @@
+{
+  "name": "pswdgen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "password-generator",
+    "cli"
+  ],
+  "author": "nordwaldberg",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.8",
+    "@types/node": "^14.0.27",
+    "jest": "^26.2.2"
+  }
+}
