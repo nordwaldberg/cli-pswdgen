@@ -4,7 +4,7 @@ Configurable password cli generator
 
 Installation
 ------------------------------------
-    npm install pswdgen
+    npm install -g pswdgen
 
 Usage and options
 ------------------------------------
