@@ -6,12 +6,11 @@ const charsConfig = require('./charsConfig');
 const { RollingBox } = require('./randomizer');
 
 function pswdgen(parsed) {
-    const { specials, digits, uppercases, lowercases } = parsed;
     const box = new RollingBox();
     let res = '';
 
     for (let option of options) {
-        if (option.name !== 'length') {
+        if (option.name !== 'length' && parsed[option.name]) {
             box.add(option.name);
         }
     }

@@ -13,9 +13,8 @@ for (let option of options) {
     parsed.option(flags, description, _default);
 }
 
-parsed
-    .parse(process.argv)
-    .opts();
+parsed.parse(process.argv);
+
 
 options.forEach(option => {
     if (option.validate) {
@@ -23,4 +22,4 @@ options.forEach(option => {
     }
 })
 
-module.exports = parsed;
+module.exports = parsed.opts();
