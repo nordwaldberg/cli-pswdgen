@@ -1,10 +1,10 @@
-module.exports = [
+const options: Array<Option> =  [
     {
         flags: '-L --length <number>',
         description: 'set password length',
-        _default: 8,
+        _default: '8',
         name: 'length',
-        validate(value) {
+        validate(value: any): void {
             if (!isNumber(value)) {
                 console.error(`value parameter "${this.name}" should be a number`);
                 process.exit(1);
@@ -31,11 +31,24 @@ module.exports = [
         description: 'use if letters in lowercase register are not required',
         name: 'lowercases',
     },
+    
 ];
 
-function isNumber(guessNumber) {
+type Option = {
+    flags: string;
+    description: string;
+    _default?: string | boolean;
+    name: OptionName;
+    validate?: (value: any) => void; 
+}
+
+export type OptionName = 'specials' | 'digits' | 'uppercases' | 'lowercases' | 'length';
+
+function isNumber(guessNumber: any): guessNumber is number {
     if(isNaN(Number(guessNumber))) {
         return false;
     }
     return true;
 }
+
+export default options;

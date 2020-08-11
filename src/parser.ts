@@ -1,5 +1,5 @@
-const { program } = require('commander');
-const options = require('./options');
+import { program } from 'commander';
+import options from './options';
 
 program.version('1.0.0', '-v, --version', 'output the current version');
 
@@ -15,11 +15,10 @@ for (let option of options) {
 
 parsed.parse(process.argv);
 
-
 options.forEach(option => {
     if (option.validate) {
         option.validate(parsed[option.name]);
     }
 })
 
-module.exports = parsed.opts();
+export default parsed.opts();
