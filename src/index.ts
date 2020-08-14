@@ -5,7 +5,7 @@ import options, { OptionName }  from './options';
 import charsConfig  from './charsConfig';
 import { RollingBox }  from './randomizer';
 
-function pswdgen(parsed: any): string {
+export function pswdgen(parsed: any): string {
     
     let res: string = '';
 
@@ -18,7 +18,7 @@ function pswdgen(parsed: any): string {
 
     const box = new RollingBox(...boxValues);
 
-    for (let i = 0; i < Number(parsed.length) - 1; i++) {
+    for (let i = 0; i < Number(parsed.length); i++) {
         const rolling = box.roll();
         if (rolling) {
             const smth = charsConfig[rolling];

@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const commander_1 = require("commander");
 const options_1 = __importDefault(require("./options"));
+const commander_1 = require("commander");
 commander_1.program.version('1.0.0', '-v, --version', 'output the current version');
 const parsed = commander_1.program
     .name('pswdgen')
@@ -19,5 +19,6 @@ options_1.default.forEach(option => {
         option.validate(parsed[option.name]);
     }
 });
-exports.default = parsed.opts();
+const parsedObj = parsed.opts();
+exports.default = parsedObj;
 //# sourceMappingURL=parser.js.map

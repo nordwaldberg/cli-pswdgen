@@ -1,8 +1,7 @@
-import { program } from 'commander';
 import options from './options';
+import { program } from 'commander';
 
-program.version('1.0.0', '-v, --version', 'output the current version');
-
+program.version('3.0.0', '-v, --version', 'output the current version');
 
 const parsed = program
     .name('pswdgen')
@@ -21,4 +20,5 @@ options.forEach(option => {
     }
 })
 
-export default parsed.opts();
+const parsedObj = parsed.opts();
+export default parsedObj;
